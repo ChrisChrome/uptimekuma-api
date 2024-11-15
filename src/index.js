@@ -60,7 +60,10 @@ module.exports = class UptimeKumaApi extends EventEmitter {
             }
             result.push(targetCategory);
         }
-        return result;
+        return {
+			status: result,
+			pageData: resp.data
+		};
     }
 
     async connect() {
