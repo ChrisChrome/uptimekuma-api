@@ -61,8 +61,12 @@ module.exports = class UptimeKumaApi extends EventEmitter {
             result.push(targetCategory);
         }
         return {
+			info: {
+				title: resp.data.config.title,
+				description: resp.data.config.description,
+				icon: this._baseURL.slice(0, -1) + resp.data.config.icon
+			},
 			status: result,
-			pageData: resp.data
 		};
     }
 
